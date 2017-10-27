@@ -16,7 +16,8 @@ OBJCOPYFLAGS	:=-O binary -R .note -R .note.gnu.build-id -R .comment -S
 GZFLAGS		:=-9
 
 ifneq ($(CONFIG_RELOCATABLE),)
-LDFLAGS_vmlinux		+= -pie -Bsymbolic
+LDFLAGS_vmlinux		+= -pie -Bsymbolic \
+			$(call ld-option, --no-apply-dynamic-relocs)
 endif
 
 KBUILD_DEFCONFIG := defconfig
