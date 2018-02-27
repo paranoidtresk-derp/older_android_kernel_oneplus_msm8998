@@ -7796,7 +7796,7 @@ simple:
 
 	p = task_of(se);
 
-done: __maybe_unused
+done: __maybe_unused;
 #ifdef CONFIG_SMP
 	/*
 	 * Move the next running task to the front of
