@@ -316,13 +316,6 @@ static struct ctl_table kern_table[] = {
 #endif
 #ifdef CONFIG_SCHED_DEBUG
 	{
-		.procname	= "sched_cpu_schedtune_bias",
-		.data		= &sysctl_sched_cpu_schedtune_bias,
-		.maxlen		= sizeof(unsigned int),
-		.mode		= 0644,
-		.proc_handler	= proc_dointvec,
-	},
-	{
 		.procname	= "sched_min_granularity_ns",
 		.data		= &sysctl_sched_min_granularity,
 		.maxlen		= sizeof(unsigned int),
@@ -529,6 +522,13 @@ static struct ctl_table kern_table[] = {
 		.proc_handler	= &sysctl_sched_cfs_boost_handler,
 		.extra1		= &zero,
 		.extra2		= &one_hundred,
+	},
+	{
+		.procname	= "sched_cpu_schedtune_bias",
+		.data		= &sysctl_sched_cpu_schedtune_bias,
+		.maxlen		= sizeof(unsigned int),
+		.mode		= 0644,
+		.proc_handler	= proc_dointvec,
 	},
 #endif
 #ifdef CONFIG_PROVE_LOCKING
