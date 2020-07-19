@@ -700,9 +700,9 @@ static int sugov_init(struct cpufreq_policy *policy)
                 tunables->down_rate_limit_us = LATENCY_MULTIPLIER;
 		lat = policy->cpuinfo.transition_latency / NSEC_PER_USEC;
 		if (lat) {
-                        tunables->up_rate_limit_us *= lat;
-                        tunables->down_rate_limit_us *= lat;
-                }
+			tunables->up_rate_limit_us *= lat;
+			tunables->down_rate_limit_us *= lat;
+		}
 	}
 
 	tunables->iowait_boost_enable = policy->iowait_boost_enable;
